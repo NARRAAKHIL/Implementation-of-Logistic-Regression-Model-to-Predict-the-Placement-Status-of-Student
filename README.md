@@ -8,33 +8,29 @@ To write a program to implement the the Logistic Regression Model to Predict the
 2. Anaconda – Python 3.7 Installation / Jupyter notebook
 
 ## Algorithm
-step 1. Start
+STEP 1:Start
 
-step 2. Data Preparation 
+STEP 2:Load and preprocess the dataset: drop irrelevant columns, handle missing values, and encode categorical variables using LabelEncoder.
 
-step 3. Hypothesis Definition
+STEP 3:Split the data into training and test sets using train_test_split.
 
-step 4. Cost Function
+STEP 4:Create and fit a logistic regression model to the training data.
 
-step 5. Parameter Update Rule
+STEP 5:Predict the target variable on the test set and evaluate performance using accuracy, confusion matrix, and classification report.
 
-step 6. Iterative Training
+STEP 6:Display the confusion matrix using metrics.ConfusionMatrixDisplay and plot the results.
 
-step 7. Model Evaluation
-
-step 8. End
-
+STEP 7:End
 ## Program:
-```
+
 /*
-Program to implement the multivariate linear regression model for predicting the price of the house and number
-of occupants in the house with SGD regressor.
-Developed by: Narra Ramya
-RegisterNumber:212223040128
-
-
+Program to implement the the Logistic Regression Model to Predict the Placement Status of Student.
+```
+Developed by: NARRA AKHIL
+RegisterNumber: 212223230136
+*/
 import pandas as pd
-data=pd.read_csv("C:/Users/Admin/Desktop/Placement_Data.csv")
+data=pd.read_csv("C:/Users/admin/Desktop/Placement_Data.csv")
 data.head()
 data1=data.copy()
 data1=data1.drop(["sl_no","salary"],axis=1)
@@ -44,7 +40,7 @@ data1.duplicated().sum()
 from sklearn.preprocessing import LabelEncoder
 le=LabelEncoder()
 data1["gender"]=le.fit_transform(data1["gender"])
-data1["ssc_b"]=le.fit_transform(data1["ssc_b"])   
+data1["ssc_b"]=le.fit_transform(data1["ssc_b"])
 data1["hsc_b"]=le.fit_transform(data1["hsc_b"])
 data1["hsc_s"]=le.fit_transform(data1["hsc_s"])
 data1["degree_t"]=le.fit_transform(data1["degree_t"])
@@ -59,7 +55,7 @@ y
 from sklearn.model_selection import train_test_split
 x_train,x_test,y_train,y_test=train_test_split(x,y,test_size=0.2,random_state=0)
 from sklearn.linear_model import LogisticRegression
-lr=LogisticRegression(solver="liblinear")
+lr=LogisticRegression(solver="liblinear")#lirary for large linear classification
 lr.fit(x_train,y_train)
 y_pred=lr.predict(x_test)
 y_pred
@@ -70,21 +66,14 @@ from sklearn.metrics import classification_report
 classification_report1=classification_report(y_test,y_pred)
 print(classification_report1)
 lr.predict([[1,80,1,90,1,1,90,1,0,85,1,85]])
-
-
 ```
 ## Output:
-## y_pred
-![image](https://github.com/user-attachments/assets/a830adf3-e86d-4bd2-a342-090e6083f98f)
+![image](https://github.com/user-attachments/assets/7d2cf34e-f14c-4ea4-9fca-a03b4f52aa57)
 
-## print(classification_report1)
-![image](https://github.com/user-attachments/assets/f6ca2add-680f-4acd-bf21-bb11038aa904)
+![image](https://github.com/user-attachments/assets/6b19add8-1751-4590-a2a3-facf92fe56f8)
 
-## lr.predict([[1,80,1,90,1,1,90,1,0,85,1,85]])
-![image](https://github.com/user-attachments/assets/a2e7aff6-b78d-430d-b14c-521c06869cde)
-
-
+![image](https://github.com/user-attachments/assets/301a357e-8415-41a0-af05-c7e9efdd2346)
 
 
 ## Result:
-Thus the program to implement the multivariate linear regression model for predicting the price of the house and number of occupants in the house with SGD regressor is written and verified using python programming.
+Thus the program to implement the the Logistic Regression Model to Predict the Placement Status of Student is written and verified using python programming.
